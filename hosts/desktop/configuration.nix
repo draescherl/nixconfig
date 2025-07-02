@@ -122,6 +122,7 @@
       wl-clipboard
       wlogout
       wlsunset
+      wtype
     ];
     extraOptions = [
       "--unsupported-gpu"
@@ -134,6 +135,7 @@
     bat
     bitwarden-cli
     bitwarden-desktop
+    btop
     delta
     direnv
     eza
@@ -143,11 +145,16 @@
     gcc
     git
     gnumake
+    go-task
     jetbrains-toolbox
     nautilus
     neovim
     networkmanagerapplet
+    nushell
+    nushellPlugins.formats
     pavucontrol
+    postgresql
+    pspg
     pulseaudio
     ripgrep
     sd
