@@ -152,6 +152,7 @@
     nautilus
     neovim
     networkmanagerapplet
+    nh
     nushell
     nushellPlugins.formats
     pavucontrol
