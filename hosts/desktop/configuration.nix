@@ -56,6 +56,8 @@
 
   services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
+  security.pam.services.gdm.enableGnomeKeyring = true;
+  environment.variables.XDG_RUNTIME_DIR = "/run/user/$UID";
   services.desktopManager.gnome.enable = true;
   services.xserver.xkb = {
     layout = "fr";
