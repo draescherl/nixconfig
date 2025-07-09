@@ -114,6 +114,8 @@
     extraPackages = with pkgs; [
       brightnessctl
       cliphist
+      networkmanagerapplet
+      pavucontrol
       sway-contrib.grimshot
       swayidle
       swaylock-effects
@@ -147,19 +149,16 @@
     fzf
     gcc
     git
+    git-lfs
     gnumake
     go-task
     jetbrains-toolbox
-    nautilus
     neovim
-    networkmanagerapplet
     nh
     nushell
     nushellPlugins.formats
-    pavucontrol
     postgresql
     pspg
-    pulseaudio
     ripgrep
     sd
     slack
