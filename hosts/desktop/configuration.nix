@@ -160,7 +160,7 @@
     git-lfs
     gnumake
     go-task
-    jetbrains-toolbox
+    jetbrains.idea-ultimate
     neovim
     nh
     nushell
