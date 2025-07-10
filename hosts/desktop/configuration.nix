@@ -116,6 +116,7 @@
       cliphist
       networkmanagerapplet
       pavucontrol
+      pulseaudio
       sway-contrib.grimshot
       swayidle
       swaylock-effects
