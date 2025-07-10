@@ -161,6 +161,7 @@
     gnumake
     go-task
     jetbrains.idea-ultimate
+    jq
     neovim
     nh
     nushell
