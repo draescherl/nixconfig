@@ -63,6 +63,10 @@
     layout = "fr";
     variant = "azerty";
   };
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -132,6 +136,9 @@
     extraOptions = [
       "--unsupported-gpu"
     ];
+    extraSessionCommands = ''
+      eval $(gnome-keyring-daemon --start --daemonize)
+    '';
   };
 
   nixpkgs.config.allowUnfree = true;
