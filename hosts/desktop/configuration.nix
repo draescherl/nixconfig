@@ -145,6 +145,7 @@
   environment.systemPackages = with pkgs; [
     _1password-cli
     alacritty
+    bash-language-server
     bat
     bitwarden-cli
     bitwarden-desktop
@@ -162,13 +163,18 @@
     go-task
     jetbrains.idea-ultimate
     jq
+    lua-language-server
     neovim
     nh
     nushell
     nushellPlugins.formats
+    postgres-lsp
     postgresql
     pspg
+    pyright
     ripgrep
+    ruby-lsp
+    rust-analyzer
     sd
     slack
     solaar
