@@ -151,6 +151,7 @@
     bitwarden-desktop
     btop
     delta
+    dig
     direnv
     eza
     fd
