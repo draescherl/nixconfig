@@ -194,6 +194,7 @@
     solaar
     starship
     stow
+    stremio
     vesktop
     wezterm
     wget
