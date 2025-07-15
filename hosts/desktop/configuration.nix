@@ -167,6 +167,8 @@
     lua-language-server
     neovim
     nh
+    nixd
+    nixfmt-rfc-style
     nushell
     nushellPlugins.formats
     postgres-lsp
