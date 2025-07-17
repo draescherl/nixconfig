@@ -10,14 +10,33 @@
   };
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      zen-browser,
+      ...
+    }:
+    let
+      system = "x86_64-linux";
+      args = {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      pkgs = import nixpkgs args;
+      zen = zen-browser.packages.${system};
+    in
     {
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+          inherit system;
+          inherit pkgs;
+          specialArgs = {
+            inherit zen;
+            hostname = "nixos";
+          };
           modules = [
             ./hosts/desktop/configuration.nix
+            ./modules
           ];
         };
       };
