@@ -186,6 +186,7 @@
     git-lfs
     gnumake
     go-task
+    jetbrains.idea-ultimate
     jq
     lua-language-server
     metals
