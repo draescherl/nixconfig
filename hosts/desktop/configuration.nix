@@ -159,6 +159,11 @@
   };
 
   programs.direnv.enable = true;
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+  };
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
@@ -181,11 +186,9 @@
     git-lfs
     gnumake
     go-task
-    jetbrains.idea-ultimate
     jq
     lua-language-server
     neovim
-    nh
     nixd
     nixfmt-rfc-style
     nushell
