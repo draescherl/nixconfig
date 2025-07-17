@@ -11,7 +11,6 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       zen-browser,
       ...
