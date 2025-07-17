@@ -188,6 +188,7 @@
     go-task
     jq
     lua-language-server
+    metals
     neovim
     nixd
     nixfmt-rfc-style
