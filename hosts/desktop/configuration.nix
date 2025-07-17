@@ -209,6 +209,7 @@
     stow
     stremio
     vesktop
+    vscode
     wezterm
     wget
     wireguard-tools
