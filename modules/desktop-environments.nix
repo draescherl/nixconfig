@@ -49,7 +49,7 @@
       wlsunset
       wtype
     ];
-    extraOptions = [
+    extraOptions = lib.optionals config.nvidia.enable [
       "--unsupported-gpu"
     ];
     extraSessionCommands = ''
