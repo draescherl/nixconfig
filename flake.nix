@@ -31,7 +31,7 @@
           inherit pkgs;
           specialArgs = {
             inherit zen;
-            hostname = "nixos";
+            hostname = "desktop";
           };
           modules = [
             ./hosts/desktop/configuration.nix
