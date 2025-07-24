@@ -56,4 +56,6 @@
       eval $(gnome-keyring-daemon --start --daemonize)
     '';
   };
+
+  programs.niri.enable = true;
 }
