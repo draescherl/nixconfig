@@ -24,6 +24,20 @@
     extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
   };
 
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      default = {
+        ids = [ "*" ];
+        settings = {
+          main = {
+            rightcontrol = "layer(meta)";
+          };
+        };
+      };
+    };
+  };
+
   fonts.packages = [
     pkgs.nerd-fonts.jetbrains-mono
   ];
