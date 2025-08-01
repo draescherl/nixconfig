@@ -52,6 +52,7 @@
       pavucontrol
       pulseaudio
       sway-contrib.grimshot
+      swaybg
       swayidle
       swaylock-effects
       swaynotificationcenter
