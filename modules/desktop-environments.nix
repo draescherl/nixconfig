@@ -67,6 +67,7 @@
       "--unsupported-gpu"
     ];
     extraSessionCommands = ''
+      export ELECTRON_OZONE_PLATFORM_HINT="auto"
       eval $(gnome-keyring-daemon --start --daemonize)
     '';
   };
