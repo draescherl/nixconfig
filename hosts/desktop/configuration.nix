@@ -8,6 +8,7 @@
   programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
     _1password-cli
+    clever-tools
     slack
     stremio
   ];
