@@ -42,6 +42,18 @@
 
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
+  environment.gnome.excludePackages = with pkgs; [
+    cheese
+    epiphany
+    gnome-console
+    gnome-contacts
+    gnome-logs
+    gnome-maps
+    gnome-tour
+    gnome-usage
+    xterm
+    yelp
+  ];
 
   programs.sway = {
     enable = true;
