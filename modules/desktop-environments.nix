@@ -5,20 +5,13 @@
   ...
 }:
 {
+  # need to sort through the utility of these
   hardware.graphics.enable = true;
-
   services.printing.enable = true;
-
   services.xserver.enable = true;
-  services.displayManager.gdm.enable = true;
+  services.gnome.gnome-keyring.enable = true;
   security.pam.services.gdm.enableGnomeKeyring = true;
   environment.variables.XDG_RUNTIME_DIR = "/run/user/$UID";
-  services.desktopManager.gnome.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  services.xserver.xkb = {
-    layout = "fr";
-    variant = "azerty";
-  };
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
@@ -41,6 +34,14 @@
   fonts.packages = [
     pkgs.nerd-fonts.jetbrains-mono
   ];
+
+  services.xserver.xkb = {
+    layout = "fr";
+    variant = "azerty";
+  };
+
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   programs.sway = {
     enable = true;
