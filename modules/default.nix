@@ -17,7 +17,6 @@
     bat
     bitwarden-cli
     bitwarden-desktop
-    btop
     delta
     dig
     direnv
@@ -29,6 +28,7 @@
     git-lfs
     gnumake
     go-task
+    htop
     jq
     postgresql
     pspg
