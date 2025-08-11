@@ -1,17 +1,24 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    neovim
+
+    # LSPs
     bash-language-server
-    jetbrains.idea-ultimate
     lua-language-server
     metals
-    neovim
     nixd
-    nixfmt-rfc-style
     postgres-lsp
     pyright
+    rubocop
     ruby-lsp
     rust-analyzer
-    vscode
+
+    # Formatters
+    isort
+    nixfmt-rfc-style
+    rustfmt
+    shellcheck
+    stylua
   ];
 }

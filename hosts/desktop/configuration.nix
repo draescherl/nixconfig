@@ -1,19 +1,20 @@
-{ pkgs, hostname, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
   ];
 
-  networking.hostName = hostname;
-  programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
-    _1password-cli
-    clever-tools
-    slack
     stremio
   ];
 
+  gaming.enable = true;
   nvidia.enable = true;
+  work.enable = true;
+  desktops = [
+    "gnome"
+    "sway"
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
