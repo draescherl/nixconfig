@@ -10,8 +10,11 @@
   };
 
   config = lib.mkIf config.work.enable {
+    programs._1password.enable = true;
+    programs._1password-gui.enable = true;
+    programs._1password-gui.polkitPolicyOwners = [ "lucas" ];
+
     environment.systemPackages = with pkgs; [
-      _1password-cli
       clever-tools
       slack
     ];
