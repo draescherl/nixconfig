@@ -7,7 +7,20 @@
     ./work.nix
   ];
 
-  programs.direnv.enable = true;
+  programs.direnv = {
+    enable = true;
+    settings = {
+      global = {
+        warn_timeout = 0;
+        hide_env_diff = true;
+      };
+
+      whitelist = {
+        prefix = [ "~/Documents/" ];
+      };
+    };
+  };
+
   programs.nh = {
     enable = true;
     clean.enable = true;
