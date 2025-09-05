@@ -25,6 +25,7 @@
       extraPackages = with pkgs; [
         brightnessctl
         cliphist
+        fuzzel
         networkmanagerapplet
         pavucontrol
         pulseaudio
