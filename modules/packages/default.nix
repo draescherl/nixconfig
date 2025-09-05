@@ -2,6 +2,7 @@
 {
   imports = [
     ./browsers.nix
+    ./email.nix
     ./gaming.nix
     ./shells.nix
     ./work.nix
