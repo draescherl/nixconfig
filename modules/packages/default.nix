@@ -8,20 +8,6 @@
     ./work.nix
   ];
 
-  programs.direnv = {
-    enable = true;
-    settings = {
-      global = {
-        warn_timeout = 0;
-        hide_env_diff = true;
-      };
-
-      whitelist = {
-        prefix = [ "~/Documents/" ];
-      };
-    };
-  };
-
   programs.nh = {
     enable = true;
     clean.enable = true;
@@ -30,7 +16,6 @@
 
   environment.systemPackages = with pkgs; [
     alacritty
-    wezterm
     bat
     bitwarden-cli
     bitwarden-desktop
@@ -47,6 +32,7 @@
     go-task
     htop
     jq
+    nix-direnv
     postgresql
     pspg
     ripgrep
@@ -55,6 +41,7 @@
     starship
     stow
     vesktop
+    wezterm
     wget
     wireguard-tools
     zoxide
