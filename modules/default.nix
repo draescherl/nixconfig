@@ -10,8 +10,9 @@
     ./desktops
     ./editors
     ./packages
-    ./system
     ./security.nix
+    ./system
     ./users.nix
+    ./virtualisation.nix
   ];
 }
