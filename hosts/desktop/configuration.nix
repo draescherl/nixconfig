@@ -1,11 +1,7 @@
-{ pkgs, ... }:
+{ ... }:
 {
   imports = [
     ./hardware-configuration.nix
-  ];
-
-  environment.systemPackages = with pkgs; [
-    stremio
   ];
 
   gaming.enable = true;
