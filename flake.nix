@@ -12,51 +12,47 @@
   outputs =
     { nixpkgs, zen-browser, ... }:
     let
-      system = "x86_64-linux";
-
-      mkNixosSystem =
-        system:
+      # Helper function to create a system configuration
+      mkSystem =
         {
+          system,
           hostname,
-          gaming ? false,
-          nvidia ? false,
-          work ? false,
-          desktops ? [ ],
-          ...
+          username,
+          extraModules ? [ ],
         }:
         nixpkgs.lib.nixosSystem {
-          inherit system;
           specialArgs = {
+            inherit system hostname username;
             zen = zen-browser.packages.${system};
-            inherit hostname desktops;
-            features = {
-              gaming.enable = gaming;
-              nvidia.enable = nvidia;
-              work.enable = work;
-            };
           };
           modules = [
+            # Host-specific configuration
             ./hosts/${hostname}/configuration.nix
-            ./modules
-          ];
-        };
 
-      # Host configurations
-      hostConfigs = {
-        desktop = {
-          gaming = true;
-          nvidia = true;
-          work = true;
-          desktops = [
-            "gnome"
-            "sway"
+            # Common modules shared across all systems
+            ./modules/fonts.nix
+            ./modules/security.nix
+            ./modules/system.nix
+            ./modules/users.nix
+            ./modules/virtualisation.nix
+          ]
+          ++ extraModules; # Host-specific modules
+        };
+    in
+    {
+      nixosConfigurations = {
+        # Desktop configuration
+        desktop = mkSystem {
+          system = "x86_64-linux";
+          hostname = "desktop";
+          username = "lucas";
+          extraModules = [
+            ./modules/desktops/gnome.nix
+            ./modules/desktops/sway.nix
+            ./modules/keyd.nix
+            ./modules/nvidia.nix
           ];
         };
       };
-    in
-    {
-      nixosConfigurations = nixpkgs.lib.mapAttrs (
-        hostname: config: mkNixosSystem system (config // { inherit hostname; })
-      ) hostConfigs;
     };
 }

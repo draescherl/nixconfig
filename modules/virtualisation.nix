@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  username,
+  lib,
+  pkgs,
+  ...
+}:
 {
   virtualisation.docker = {
     enable = true;
@@ -16,7 +21,7 @@
     wantedBy = [ "multi-user.target" ]; # Start on boot
   };
 
-  environment.systemPackages = with pkgs; [
+  users.users.${username}.packages = with pkgs; [
     docker-compose
   ];
 }
