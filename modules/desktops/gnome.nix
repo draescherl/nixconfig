@@ -1,9 +1,9 @@
 { pkgs, ... }:
 {
-  services.desktopManager.gnome.enable = true;
+  hardware.graphics.enable = true;
   services.displayManager.gdm.enable = true;
   services.gnome.gnome-keyring.enable = true;
-  services.xserver.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   environment.gnome.excludePackages = with pkgs; [
     cheese
