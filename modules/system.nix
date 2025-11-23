@@ -23,16 +23,11 @@
     efi.canTouchEfiVariables = true;
   };
 
-  # graphics
-  hardware.graphics.enable = true;
-  services.printing.enable = true;
-  services.xserver.enable = true;
+  # locale
   services.xserver.xkb = {
     layout = "fr";
     variant = "azerty";
   };
-
-  # locale
   time.timeZone = "Europe/Paris";
   time.hardwareClockInLocalTime = true;
   i18n.defaultLocale = "en_US.UTF-8";
@@ -52,4 +47,7 @@
   # networking
   networking.hostName = hostname;
   networking.networkmanager.enable = true;
+
+  # printing
+  services.printing.enable = true;
 }
