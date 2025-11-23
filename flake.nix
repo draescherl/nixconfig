@@ -47,7 +47,6 @@
           hostname = "desktop";
           username = "lucas";
           extraModules = [
-            ./modules/desktops/gnome.nix
             ./modules/desktops/sway.nix
             ./modules/keyd.nix
             ./modules/nvidia.nix
