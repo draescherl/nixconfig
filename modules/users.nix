@@ -28,7 +28,6 @@
       [
         alacritty
         bat
-        chromium
         claude-code
         delta
         dig
@@ -52,6 +51,7 @@
         sd
         starship
         stow
+        ungoogled-chromium
         vesktop
         wezterm
         wget
@@ -72,11 +72,11 @@
 
         # Formatters
         isort
-        nixfmt-rfc-style
+        nixfmt
         rustfmt
         shellcheck
         stylua
       ]
-      ++ [ zen.default ];
+      ++ [ zen ];
   };
 }

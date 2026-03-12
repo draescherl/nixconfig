@@ -1,13 +1,18 @@
-{ username, pkgs, ... }:
 {
-  services.greetd = {
-    enable = true;
-    useTextGreeter = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --remember --asterisks --time --cmd sway";
-        user = username;
-      };
+  username,
+  pkgs,
+  ...
+}:
+{
+  environment.etc = {
+    "custom-sessions/sway-noctalia.desktop" = {
+      text = ''
+        [Desktop Entry]
+        Name=Sway (Noctalia Shell)
+        Exec=sway --config /home/${username}/.config/sway/noctalia
+        Type=Application
+        DesktopNames=sway;wlroots;swayfx
+      '';
     };
   };
 
@@ -26,30 +31,35 @@
     enable = true;
     package = pkgs.swayfx;
     wrapperFeatures.gtk = true;
-    extraPackages = with pkgs; [
-      adwaita-icon-theme
-      brightnessctl
-      cliphist
-      fuzzel
-      gnome-text-editor
-      loupe
-      nautilus
-      networkmanagerapplet
-      papers
-      pavucontrol
-      pulseaudio
-      sway-contrib.grimshot
-      swaybg
-      swayidle
-      swaylock-effects
-      swaynotificationcenter
-      waybar
-      wev
-      wl-clipboard
-      wlogout
-      wlsunset
-      wtype
-    ];
+    extraPackages =
+      with pkgs;
+      [
+        adwaita-icon-theme
+        brightnessctl
+        cliphist
+        fuzzel
+        gnome-text-editor
+        loupe
+        nautilus
+        networkmanagerapplet
+        papers
+        pavucontrol
+        pulseaudio
+        sway-contrib.grimshot
+        swaybg
+        swayidle
+        swaylock-effects
+        swaynotificationcenter
+        waybar
+        wev
+        wl-clipboard
+        wlogout
+        wlsunset
+        wtype
+      ]
+      ++ [
+        noctalia-shell
+      ];
     extraOptions = [
       "--unsupported-gpu"
     ];

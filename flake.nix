@@ -7,10 +7,19 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia-shell = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { nixpkgs, zen-browser, ... }:
+    {
+      nixpkgs,
+      zen-browser,
+      noctalia-shell,
+      ...
+    }:
     let
       # Helper function to create a system configuration
       mkSystem =
@@ -23,7 +32,8 @@
         nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit system hostname username;
-            zen = zen-browser.packages.${system};
+            zen = zen-browser.packages.${system}.default;
+            noctalia = noctalia-shell.packages.${system}.default;
           };
           modules = [
             # Host-specific configuration
@@ -31,6 +41,7 @@
 
             # Common modules shared across all systems
             ./modules/fonts.nix
+            ./modules/login.nix
             ./modules/security.nix
             ./modules/system.nix
             ./modules/users.nix
