@@ -11,6 +11,10 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mangowm = {
+      url = "github:mangowm/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -18,6 +22,7 @@
       nixpkgs,
       zen-browser,
       noctalia-shell,
+      mangowm,
       ...
     }:
     let
@@ -46,6 +51,7 @@
             ./modules/system.nix
             ./modules/users.nix
             ./modules/virtualisation.nix
+            mangowm.nixosModules.mango
           ]
           ++ extraModules; # Host-specific modules
         };
@@ -58,6 +64,7 @@
           hostname = "desktop";
           username = "lucas";
           extraModules = [
+            ./modules/desktops/mangowc.nix
             ./modules/desktops/sway.nix
             ./modules/keyd.nix
             ./modules/nvidia.nix
