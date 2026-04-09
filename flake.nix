@@ -66,6 +66,7 @@
           extraModules = [
             ./modules/desktops/mangowc.nix
             ./modules/desktops/sway.nix
+            ./modules/gaming.nix
             ./modules/keyd.nix
             ./modules/nvidia.nix
           ];
