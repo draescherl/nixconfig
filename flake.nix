@@ -64,6 +64,7 @@
           hostname = "desktop";
           username = "lucas";
           extraModules = [
+            ./modules/bluetooth.nix
             ./modules/desktops/mangowc.nix
             ./modules/desktops/sway.nix
             ./modules/gaming.nix
