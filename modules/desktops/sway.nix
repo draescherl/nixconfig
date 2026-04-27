@@ -50,6 +50,7 @@
         swayidle
         swaylock-effects
         swaynotificationcenter
+        vlc
         waybar
         wev
         wl-clipboard
