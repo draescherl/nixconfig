@@ -49,6 +49,7 @@
             ./modules/login.nix
             ./modules/security.nix
             ./modules/system.nix
+            ./modules/theme.nix
             ./modules/users.nix
             ./modules/virtualisation.nix
             mangowm.nixosModules.mango
