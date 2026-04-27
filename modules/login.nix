@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  username,
   ...
 }:
 {
@@ -19,7 +18,6 @@
         in
         {
           command = "${pkgs.tuigreet}/bin/tuigreet --sessions ${sessions} --remember --remember-user-session";
-          user = username;
         };
     };
   };
