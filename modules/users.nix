@@ -46,6 +46,11 @@
         nix-direnv
         nushell
         postgresql
+        proton-pass
+        proton-pass-cli
+        proton-vpn
+        proton-vpn-cli
+        protonmail-desktop
         pspg
         ripgrep
         sd
