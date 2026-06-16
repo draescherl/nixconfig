@@ -56,6 +56,7 @@
         sd
         starship
         stow
+        tree-sitter
         ungoogled-chromium
         vesktop
         wezterm
