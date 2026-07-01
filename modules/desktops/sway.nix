@@ -23,9 +23,16 @@
   # https://nixos.wiki/wiki/Nautilus
   services.gvfs.enable = true;
 
+  # Under Sway (XDG_CURRENT_DESKTOP=sway) the gtk portal isn't picked up
+  # automatically (it declares UseIn=gnome), so route the Settings
+  # interface to it explicitly. This is what feeds color-scheme to apps.
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    config.common."org.freedesktop.impl.portal.Settings" = [ "gtk" ];
   };
 
   programs.sway = {
