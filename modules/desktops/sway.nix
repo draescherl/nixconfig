@@ -62,7 +62,7 @@
         waybar
         wev
         wl-clipboard
-        wlogout
+        wleave
         wlsunset
         wtype
       ]
