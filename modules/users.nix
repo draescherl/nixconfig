@@ -1,18 +1,9 @@
 {
   username,
-  zen,
   pkgs,
   ...
 }:
 {
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
-  };
-
-  programs.fish.enable = true;
-
   users.users.${username} = {
     shell = pkgs.fish;
     isNormalUser = true;
@@ -22,67 +13,5 @@
       "networkmanager"
       "wheel"
     ];
-
-    packages =
-      with pkgs;
-      [
-        alacritty
-        bat
-        claude-code
-        delta
-        dig
-        direnv
-        eza
-        fd
-        fzf
-        gcc
-        git
-        git-lfs
-        gnumake
-        go-task
-        htop
-        jq
-        neovim
-        nix-direnv
-        nushell
-        postgresql
-        proton-pass
-        proton-pass-cli
-        proton-vpn
-        proton-vpn-cli
-        protonmail-desktop
-        pspg
-        ripgrep
-        sd
-        starship
-        stow
-        tree-sitter
-        ungoogled-chromium
-        vesktop
-        wezterm
-        wget
-        wireguard-tools
-        zed-editor-fhs
-        zoxide
-
-        # LSPs
-        bash-language-server
-        lua-language-server
-        metals
-        nixd
-        postgres-language-server
-        pyright
-        rubocop
-        ruby-lsp
-        rust-analyzer
-
-        # Formatters
-        isort
-        nixfmt
-        rustfmt
-        shellcheck
-        stylua
-      ]
-      ++ [ zen ];
   };
 }

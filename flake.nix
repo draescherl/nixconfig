@@ -47,6 +47,7 @@
             # Common modules shared across all systems
             ./modules/fonts.nix
             ./modules/login.nix
+            ./modules/programs.nix
             ./modules/security.nix
             ./modules/system.nix
             ./modules/theme.nix
