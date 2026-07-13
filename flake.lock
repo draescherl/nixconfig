@@ -114,7 +114,7 @@
         "type": "github"
       }
     },
-    "noctalia-shell": {
+    "noctalia": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -124,13 +124,13 @@
         "lastModified": 1783973423,
         "narHash": "sha256-sDECfE6YIdY4X2/E8WPGGU+Sz5yvgyVCavyM+9O2CGI=",
         "owner": "noctalia-dev",
-        "repo": "noctalia-shell",
+        "repo": "noctalia",
         "rev": "74d16614b139a4f602c665d47ea0ce82446142fd",
         "type": "github"
       },
       "original": {
         "owner": "noctalia-dev",
-        "repo": "noctalia-shell",
+        "repo": "noctalia",
         "type": "github"
       }
     },
@@ -138,7 +138,7 @@
       "inputs": {
         "mangowm": "mangowm",
         "nixpkgs": "nixpkgs",
-        "noctalia-shell": "noctalia-shell",
+        "noctalia": "noctalia",
         "zen-browser": "zen-browser"
       }
     },
@@ -188,11 +188,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783977212,
-        "narHash": "sha256-i79saHO2CT3sqwFwrMHV7bVfl8gmsTUyfhOAeETlty4=",
+        "lastModified": 1783981283,
+        "narHash": "sha256-GD06UbJyWbDyfK7IpvTLBbK0q18TOQbpA4Kpnebo+VU=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "0a6e53493a2c8c4c507940f70acc2578939451c9",
+        "rev": "d6e17f81a9f8fba647dceadd106c1b1427bc7e56",
         "type": "github"
       },
       "original": {

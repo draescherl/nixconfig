@@ -7,8 +7,8 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    noctalia-shell = {
-      url = "github:noctalia-dev/noctalia-shell";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     mangowm = {
@@ -21,7 +21,7 @@
     {
       nixpkgs,
       zen-browser,
-      noctalia-shell,
+      noctalia,
       mangowm,
       ...
     }:
@@ -38,7 +38,7 @@
           specialArgs = {
             inherit system hostname username;
             zen = zen-browser.packages.${system}.default;
-            noctalia = noctalia-shell.packages.${system}.default;
+            noctalia = noctalia.packages.${system}.default;
           };
           modules = [
             # Host-specific configuration
