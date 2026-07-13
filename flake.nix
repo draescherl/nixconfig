@@ -73,6 +73,20 @@
             ./modules/nvidia.nix
           ];
         };
+
+        # Work laptop configuration
+        tuxedo = mkSystem {
+          system = "x86_64-linux";
+          hostname = "tuxedo";
+          username = "lucas";
+          extraModules = [
+            ./modules/bluetooth.nix
+            ./modules/desktops/niri.nix
+            ./modules/desktops/sway.nix
+            ./modules/keyd.nix
+            ./modules/work.nix
+          ];
+        };
       };
     };
 }
