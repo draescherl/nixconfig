@@ -20,4 +20,10 @@
     enableSSHSupport = true;
     pinentryPackage = pkgs.pinentry-gnome3;
   };
+
+  programs.yubikey-touch-detector = {
+    enable = true;
+    unixSocket = false;
+    libnotify = true;
+  };
 }
