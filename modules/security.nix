@@ -23,7 +23,7 @@
 
   programs.yubikey-touch-detector = {
     enable = true;
-    unixSocket = false;
+    unixSocket = true;
     libnotify = true;
   };
 }
