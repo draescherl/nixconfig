@@ -10,7 +10,7 @@
       text = ''
         [Desktop Entry]
         Name=Niri (Noctalia Shell)
-        Exec=niri --session -c /home/${username}/.config/niri/noctalia.kdl
+        Exec=niri --session -c /home/${username}/.config/niri/config-noctalia.kdl
         Type=Application
         DesktopNames=niri
       '';
