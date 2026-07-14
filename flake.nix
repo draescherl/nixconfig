@@ -85,6 +85,7 @@
             ./modules/desktops/niri.nix
             ./modules/desktops/sway.nix
             ./modules/keyd.nix
+            ./modules/power.nix
             ./modules/work.nix
           ];
         };
