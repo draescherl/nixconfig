@@ -63,4 +63,11 @@
     };
     wantedBy = [ "multi-user.target" ];
   };
+
+  services.osquery = {
+    enable = true;
+    flags = {
+      flagfile = "/etc/osquery/osquery.flags";
+    };
+  };
 }
