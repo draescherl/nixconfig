@@ -50,4 +50,11 @@
 
   # printing
   services.printing.enable = true;
+
+  # network printer discovery (mDNS/DNS-SD) for driverless (IPP Everywhere) printing
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
 }
