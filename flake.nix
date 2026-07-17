@@ -15,6 +15,10 @@
       url = "github:mangowm/mango";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvirt = {
+      url = "github:AshleyYakeley/NixVirt";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -23,6 +27,7 @@
       zen-browser,
       noctalia,
       mangowm,
+      nixvirt,
       ...
     }:
     let
@@ -87,6 +92,8 @@
             ./modules/keyd.nix
             ./modules/power.nix
             ./modules/work.nix
+            ./modules/sandbox/host.nix
+            nixvirt.nixosModules.default
           ];
         };
       };
