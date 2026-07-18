@@ -33,7 +33,10 @@
   users.users.root.openssh.authorizedKeys.keyFiles = [ ./authorized_keys ];
 
   # let claude run with --dangerously-skip-permissions as root (the VM is the boundary)
-  environment.variables.IS_SANDBOX = "1";
+  environment.variables = {
+    EDITOR = "nvim";
+    IS_SANDBOX = "1";
+  };
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
