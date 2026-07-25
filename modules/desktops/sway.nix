@@ -1,6 +1,7 @@
 {
   username,
   pkgs,
+  noctalia,
   ...
 }:
 {
@@ -67,7 +68,7 @@
         wtype
       ]
       ++ [
-        noctalia-shell
+        noctalia
       ];
     extraOptions = [
       "--unsupported-gpu"
