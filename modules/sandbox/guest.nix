@@ -38,6 +38,9 @@
     IS_SANDBOX = "1";
   };
 
+  # Enable docker for testcontainers.
+  virtualisation.docker.enable = true;
+
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     claude-code
