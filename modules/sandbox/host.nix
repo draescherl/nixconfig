@@ -29,6 +29,10 @@ let
       wantedBy = [ "libvirtd.service" ];
       before = [ "libvirtd.service" ];
       after = [ "local-fs.target" ];
+      # The libvirt hook restarts these on every domain start/restore, so a rebuild
+      # never needs to. Leaving them alone keeps a rebuild from yanking virtiofsd out
+      # from under a live (or frozen) VM, which invalidates a managedsave backend state.
+      restartIfChanged = false;
       serviceConfig = {
         RuntimeDirectory = "virtiofsd";
         RuntimeDirectoryPreserve = "yes"; # both services share this dir, keep it on stop
@@ -194,10 +198,13 @@ in
           $V start sandbox ;;
         status) $V domstate sandbox; $V dominfo sandbox 2>/dev/null \
                   | ${pkgs.gnugrep}/bin/grep -E 'State|Managed save' || true ;;
-        ssh)    shift; exec ${pkgs.openssh}/bin/ssh sandbox "''$@" ;;
-        help|"") echo "usage: sandbox {start|freeze|stop|kill|reset|status|ssh}" ;;
+        ssh)    shift                           # bare `ssh` lands in /workspace; args pass through
+                if [ "$#" -eq 0 ]; then exec ${pkgs.openssh}/bin/ssh sandbox-work
+                else exec ${pkgs.openssh}/bin/ssh sandbox "''$@"; fi ;;
+        rescue) exec $V console sandbox ;;       # serial console, works with no network/sshd
+        help|"") echo "usage: sandbox {start|freeze|stop|kill|reset|status|ssh|rescue}" ;;
         *) echo "sandbox: unknown command '$1'" >&2
-           echo "usage: sandbox {start|freeze|stop|kill|reset|status|ssh}" >&2; exit 1 ;;
+           echo "usage: sandbox {start|freeze|stop|kill|reset|status|ssh|rescue}" >&2; exit 1 ;;
       esac
     '')
   ];
@@ -210,7 +217,7 @@ in
   # (reset regenerates its host keys) and lives on a private NAT we control, so
   # don't pin/verify host keys against known_hosts.
   programs.ssh.extraConfig = ''
-    Host sandbox
+    Host sandbox sandbox-work
       HostName ${guestIP}
       User root
       IdentityFile ~/.ssh/cc-sandbox
@@ -218,5 +225,12 @@ in
       StrictHostKeyChecking no
       UserKnownHostsFile /dev/null
       LogLevel ERROR
+
+    # interactive login that drops you in /workspace. kept as a separate alias so
+    # `sandbox` stays clean for command passthrough and headless runs (RemoteCommand
+    # cannot coexist with a command-line command, and RequestTTY would force a tty)
+    Host sandbox-work
+      RequestTTY yes
+      RemoteCommand cd /workspace 2>/dev/null; exec $SHELL -l
   '';
 }
