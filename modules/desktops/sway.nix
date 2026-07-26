@@ -1,22 +1,9 @@
 {
-  username,
   pkgs,
   noctalia,
   ...
 }:
 {
-  environment.etc = {
-    "custom-sessions/sway-noctalia.desktop" = {
-      text = ''
-        [Desktop Entry]
-        Name=Sway (Noctalia Shell)
-        Exec=sway --config /home/${username}/.config/sway/noctalia
-        Type=Application
-        DesktopNames=sway;wlroots;swayfx
-      '';
-    };
-  };
-
   hardware.graphics.enable = true;
   environment.variables.XDG_RUNTIME_DIR = "/run/user/$UID";
   services.gnome.gnome-keyring.enable = true;
@@ -40,36 +27,18 @@
     enable = true;
     package = pkgs.swayfx;
     wrapperFeatures.gtk = true;
-    extraPackages =
-      with pkgs;
-      [
-        adwaita-icon-theme
-        brightnessctl
-        cliphist
-        fuzzel
-        gnome-text-editor
-        loupe
-        nautilus
-        networkmanagerapplet
-        papers
-        pavucontrol
-        pulseaudio
-        sway-contrib.grimshot
-        swaybg
-        swayidle
-        swaylock-effects
-        swaynotificationcenter
-        vlc
-        waybar
-        wev
-        wl-clipboard
-        wleave
-        wlsunset
-        wtype
-      ]
-      ++ [
-        noctalia
-      ];
+    extraPackages = [
+      pkgs.adwaita-icon-theme
+      pkgs.gnome-text-editor
+      pkgs.loupe
+      pkgs.nautilus
+      pkgs.papers
+      pkgs.sway-contrib.grimshot
+      pkgs.vlc
+      pkgs.wev
+      pkgs.wl-clipboard
+      noctalia
+    ];
     extraOptions = [
       "--unsupported-gpu"
     ];
