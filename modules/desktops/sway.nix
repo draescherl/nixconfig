@@ -6,7 +6,6 @@
 {
   hardware.graphics.enable = true;
   environment.variables.XDG_RUNTIME_DIR = "/run/user/$UID";
-  services.gnome.gnome-keyring.enable = true;
 
   # https://nixos.wiki/wiki/Nautilus
   services.gvfs.enable = true;
