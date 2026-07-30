@@ -27,6 +27,7 @@
     package = pkgs.swayfx;
     wrapperFeatures.gtk = true;
     extraPackages = [
+      noctalia
       pkgs.adwaita-icon-theme
       pkgs.gnome-text-editor
       pkgs.loupe
@@ -35,8 +36,8 @@
       pkgs.sway-contrib.grimshot
       pkgs.vlc
       pkgs.wev
+      pkgs.wl-clip-persist
       pkgs.wl-clipboard
-      noctalia
     ];
     extraOptions = [
       "--unsupported-gpu"

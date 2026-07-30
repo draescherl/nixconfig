@@ -4,6 +4,9 @@
   ...
 }:
 {
+  # Enable and unlock the gnome-keyring login keyring at greetd login.
+  security.pam.services.greetd.enableGnomeKeyring = true;
+
   services.greetd = {
     enable = true;
     useTextGreeter = true;
