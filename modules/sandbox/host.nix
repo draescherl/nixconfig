@@ -29,9 +29,11 @@ let
       wantedBy = [ "libvirtd.service" ];
       before = [ "libvirtd.service" ];
       after = [ "local-fs.target" ];
-      # The libvirt hook restarts these on every domain start/restore, so a rebuild
-      # never needs to. Leaving them alone keeps a rebuild from yanking virtiofsd out
-      # from under a live (or frozen) VM, which invalidates a managedsave backend state.
+      # Don't let an incidental rebuild restart virtiofsd out from under a RUNNING VM:
+      # there is no vhost-user reconnect, so the guest's mounts would drop to I/O errors
+      # mid-session. The libvirt hook restarts virtiofsd on every domain start/restore, so
+      # a rebuild never needs to; the cost is that virtiofsd arg changes need a cold VM
+      # cycle (kill && start) to take effect.
       restartIfChanged = false;
       serviceConfig = {
         RuntimeDirectory = "virtiofsd";
@@ -54,7 +56,15 @@ let
           "--translate-uid host:${hostUid}:0:1"
           "--translate-gid guest:0:${hostGid}:1"
           "--translate-gid host:${hostGid}:0:1"
-          "--migration-mode find-paths"
+          # file-handles, not find-paths: a deleted-but-open file in the guest (SQLite
+          # journals, lock/temp files) has no path, which corrupts a find-paths managedsave
+          # ("source has lost inode N" -> resume fails with -5). File handles reference the
+          # inode directly, so open-unlinked files migrate. Needs CAP_DAC_READ_SEARCH (root).
+          "--migration-mode file-handles"
+          "--modcaps=+dac_read_search"
+          # never let one un-migrateable inode block the whole resume: the guest gets EIO on
+          # just that fd instead of the VM refusing to start. Right tradeoff for a sandbox.
+          "--migration-on-error guest-error"
         ];
         # wait for the socket before libvirt starts the domain
         ExecStartPost =
