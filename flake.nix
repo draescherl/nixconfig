@@ -9,7 +9,6 @@
     };
     noctalia = {
       url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     mangowm = {
       url = "github:mangowm/mango";
