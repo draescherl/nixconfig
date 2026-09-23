@@ -39,6 +39,7 @@
       ripgrep
       rustic
       sd
+      signal-desktop
       starship
       stow
       tree-sitter
