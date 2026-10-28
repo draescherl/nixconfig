@@ -42,6 +42,7 @@
       signal-desktop
       starship
       stow
+      tokei
       tree-sitter
       ungoogled-chromium
       vesktop
