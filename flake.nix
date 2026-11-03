@@ -71,7 +71,6 @@
           username = "lucas";
           extraModules = [
             ./modules/bluetooth.nix
-            ./modules/desktops/niri.nix
             ./modules/desktops/sway.nix
             ./modules/gaming.nix
             ./modules/keyd.nix
