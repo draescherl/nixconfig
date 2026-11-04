@@ -12,6 +12,7 @@
     [
       alacritty
       bat
+      bruno
       claude-code
       delta
       dig
