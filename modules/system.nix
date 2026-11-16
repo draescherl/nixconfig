@@ -35,6 +35,9 @@
     efi.canTouchEfiVariables = true;
   };
 
+  # for building ARM packages for my raspberrypi
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   # locale
   services.xserver.xkb = {
     layout = "fr";
