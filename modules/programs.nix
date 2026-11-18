@@ -27,6 +27,7 @@
       go-task
       htop
       jq
+      mistral-vibe
       neovim
       nix-direnv
       nushell
